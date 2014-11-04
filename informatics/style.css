@@ -1,0 +1,238 @@
+/*
+Theme Name: Informatics
+Version: 1.0
+Description: A child theme of Twenty Twelve
+Template: twentytwelve
+*/
+
+@import url("../twentytwelve/style.css");
+
+html { font-size: 85%; } 
+
+@media screen and (min-width: 900px) {
+
+  /* custom background image */
+  body {
+    background-image: url('/wp-content/themes/informatics/images/hulogo.svg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: -1395px -250px;
+  }
+  .site {
+    max-width: 950px;
+  }
+  .site-content {
+    width: 65%;
+  }
+  .widget-area {
+    float: right;
+    width: 32%;
+  }
+   \#footer-right, #footer-middle, #footer-left {
+     float:none;
+     padding-left:0;
+     padding-right:0;
+     padding-top:1em;
+     width:100%;
+   }
+}
+
+.logoL {
+  float: left;
+  padding-bottom: 5px;
+}
+
+.logoR {
+  float: right;
+  padding-right: 0px;
+  padding-bottom: 5px;
+}
+
+.site-header {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+.site-header h1 {
+  text-align: center;
+  color: #231f20;
+}
+
+
+.site-header h1 a, .site-header h2 a {
+  font-family: "Georgia", serif;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.site-header h1 a:hover, .site-header h2 a:hover  {
+  color: #A61D31;
+} 
+
+#masthead {
+  padding-top: 16px;
+  padding-bottom: 10px;
+}
+
+#maintitle {
+  line-height: 1.2;
+}
+
+/* link color */
+.entry-content a:visited {
+  color: #2D3754;
+}
+
+.entry-content a:hover {
+  color: #2D3754;
+}
+
+a {
+  color: #2D3754;
+  outline: medium none;
+}
+
+.main-navigation ul.nav-menu, .main-navigation div.nav-menu > ul {
+  text-align: center;
+  width: 75%;
+}
+
+body {
+  color: #231f20;
+}
+
+body.custom-font-enabled {
+  font-family: 'Helvetica', sans-serif;
+}
+
+body .site {
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  box-shadow: none;
+  font-size: 13px;
+}
+
+.widget-title {
+  font-size: 11px;
+  font-size: 0.785714286rem;
+  line-height: 1.8;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #525C7A;
+}
+
+.widget-area .widget h3 {
+  margin-bottom: 7px;
+}
+
+.widget-area .widget a {
+  color: #677294;
+}
+.widget-area .widget a:hover {
+  color: #252A3A;
+}
+
+.widget-area .widget a:visited {
+  color: #677294;
+}
+
+.widget-area .widget {
+  margin-bottom: 11px;
+  margin-bottom: 1.6rem;
+}
+
+/*blog post titles: */
+.entry-header .entry-title {
+  line-height: 1.2;
+  font-size: 135%;
+  text-align: center;
+}
+
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4 {
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+}
+
+.entry-content p {
+  line-height: 1.55rem;
+}
+
+.entry-content pre {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  padding: 1.2rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  line-height: 1.4rem;
+  border-right-color: #e1dfdf;
+  border-left-color: #e1dfdf;
+  border-top-color:  #e1dfdf;
+  border-bottom-color: #e1dfdf;
+}
+
+.slide-content {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  width: 58%;
+}
+  
+.site-content article {
+  margin-bottom: 0rem;
+  border-bottom: none;
+  padding-bottom: 13px;
+}
+
+
+footer.entry-meta {
+  color: #757575;
+  font-size: 0.8rem;
+  line-height: 1.5461;
+  margin-top: 0rem;
+  float: right;
+}
+
+.entry-meta {
+  display: none;
+}
+
+#person {
+  padding-top: 20px;
+}
+
+.widget-area .widget h3 {
+  margin-bottom:0;
+}
+
+#footerwidgets {
+ width:100%;
+}
+#footerwidgets p {
+ padding-bottom: .5em;
+}
+#footerwidgets li, #footerwidgets p  {
+ padding-bottom: .5em;
+ font-size:80%;
+ line-height:1.1em;
+}
+#footer-left {
+ width:30%;
+ float:left;
+ padding-right:2.5%;
+}
+#footer-middle {
+ width:30%;
+ float:left;
+ padding-left:2.5%;
+ padding-right: 2.5%;
+}
+#footer-right {
+ width:30%;
+ float:right;
+ padding-left:2.5%;
+}
+
