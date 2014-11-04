@@ -1,0 +1,36 @@
+<html>
+<head>
+
+  <link rel="stylesheet" href="/scripts/includes/jquery-ui-1.8.15.custom.css" type="text/css" />
+
+  <script type="text/javascript" src="/scripts/includes/jquery-1.6.2.js"></script>
+  <script type="text/javascript" src="/scripts/includes/jquery-ui-1.8.15.custom.js"></script>
+  <script type="text/javascript" src="/scripts/includes/jquery.MinilimsStatusBox.js "></script>
+  <script type="text/javascript" src="/scripts/includes/d3.js"></script>
+
+<style>
+body {
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+</style>
+</head>
+   <body><table><tbody><tr>
+   <td><div class="statusbox" type="Submission" property="Status" source="smms"  title="Small Molecule Mass Spec" color="red"></div></td>
+   <td><div class="statusbox" type="Submission" property="Status" source="bauer" title="Bauer Sequencing Core" color="steelblue"></div></td>
+   <td><div class="statusbox" type="Submission" property="Status" source="msprl" title="Mass Spec Proteomics Core" color="purple"></div></td>
+   </tr></tbody></table>
+   </body>
+<script>
+ $(".statusbox").each(function() {
+   $(this).MinilimsStatusBox();
+});
+</script>
+</html>
+
