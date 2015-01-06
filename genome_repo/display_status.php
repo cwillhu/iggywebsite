@@ -17,7 +17,8 @@ td, th {
      <div class="gr_status" id="gr_status">
      <table>
        <tr>
-         <th>Species</th>
+         <th>Repository</th>
+         <th>Description</th>
          <th>Source</th>
          <th>Timestamp</th>
          <th>Status</th>
@@ -29,7 +30,7 @@ $data = json_decode($jsonString);
 //print_r($data);
 foreach($data as $record) {
   echo "<tr>";
-  echo "<td> ".$record->Species." </td><td> ".$record->Source." </td><td> ".$record->Timestamp." </td><td> ".$record->Status." </td>";
+  echo "<td> ".$record->primaryID." </td><td> ".$record->description." </td><td> ".$record->source." </td><td> ".$record->timestamp." </td><td> ".$record->status." </td>";
   echo "</tr>";
 }
      ?>

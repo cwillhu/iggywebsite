@@ -11,38 +11,58 @@ $db = mysql_connect($hostname, $username, $password)
 $iggyref = mysql_select_db("iggyref",$db)  // select table
   or die("Could not select database iggyref");
 
-$sql = "SELECT DISTINCT species_id from genome";
+###
+## Make hash table of species vs. common names
+###
+
+$sql = "select * from common_name";
 $result = mysql_query($sql); 
-if($result === FALSE) {
-  die(mysql_error()); 
+if($result === FALSE) { die(mysql_error()); }
+
+$commonName = array();
+while ($row = mysql_fetch_array($result)) {
+  $commonName[$row{'species_id'}] = $row{'common_name'};
 }
+//print_r($commonName);
+
+###
+## Get status of collections
+###
+
+$sql = "select primary_id,secondary_id,type,source,status,max(timestamp) from collection group by primary_id,secondary_id,type,source;";
+$result = mysql_query($sql); 
+if($result === FALSE) { die(mysql_error()); }
 
 $output = array();
 while ($row = mysql_fetch_array($result)) {
-  $species = $row{'species_id'};
-  //print "ID: ".$species."\n";
+  $primaryID = $row{'primary_id'};
+  $secondaryID = (is_null($row{"secondary_id"})? "" : $row{"secondary_id"});
+  $source = $row{'source'};
+  $type = $row{'type'};
+  $status = $row{"status"};
+  $timestamp = (is_null($row{"max(timestamp)"})? "" : $row{"max(timestamp)"});
 
-  $sql = "SELECT * FROM genome WHERE species_id='".$species."' ORDER BY timestamp DESC LIMIT 1";
-  //print "sql: ".$sql."\n";
-  $res = mysql_query($sql);
-  if($res === FALSE) {
-    die(mysql_error());
-  }
-  $recs = mysql_fetch_array($res);
-  //print_r($recs);
+  //print "primaryID: ".$primaryID."\n";
+  //print "secondaryID: ".$secondaryID."\n";
+  //print "source: ".$source."\n";
+  //print "type: ".$type."\n";
 
-  $status = $recs{"status"};
   if ($status == "download_complete" || $status == "postprocessing_complete") {
-    $status = "Update Complete";
+    $status = "Complete";
   } else {
-    $status = str_replace("_", " ", $status);
-    $status = ucwords($status);
+    $status = "Incomplete";
   }
 
-  $source = strtoupper($recs{"source"});
-  $species = str_replace("_", " ", $species);
-  
-  array_push($output, array('Species'=>$species, 'Source'=>$source, 'Status'=>$status, 'Timestamp'=>$recs{"timestamp"}));
+  $comName = "";
+  if ($type == 'genome') {
+    $comName = $commonName[ucfirst(strtolower($secondaryID))];
+    $description = $comName . " (" . ucfirst(strtolower(str_replace("_", " ", $secondaryID))) . ")"; 
+  } else {
+    $description = $secondaryID;
+  }
+  $source = strtoupper($source);
+
+  array_push($output, array('primaryID'=>$primaryID, 'description'=>$description, 'source'=>$source, 'status'=>$status, 'timestamp'=>$timestamp));
 }
 print json_encode($output);
 
