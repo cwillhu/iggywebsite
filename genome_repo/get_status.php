@@ -29,7 +29,7 @@ while ($row = mysql_fetch_array($result)) {
 ## Get status of collections
 ###
 
-$sql = "select primary_id,secondary_id,type,source,status,max(timestamp) from collection group by primary_id,secondary_id,type,source;";
+$sql = "select c.primary_id,c.secondary_id,c.type,c.source,c.status,c.timestamp from collection c, (select primary_id,secondary_id,type,source,max(id) mid from collection group by primary_id,secondary_id,type,source) latest where latest.primary_id=c.primary_id and latest.secondary_id=c.secondary_id and latest.type=c.type and latest.source=c.source and latest.mid=c.id;";
 $result = mysql_query($sql); 
 if($result === FALSE) { die(mysql_error()); }
 
@@ -39,8 +39,8 @@ while ($row = mysql_fetch_array($result)) {
   $secondaryID = (is_null($row{"secondary_id"})? "" : $row{"secondary_id"});
   $source = $row{'source'};
   $type = $row{'type'};
-  $status = $row{"status"};
-  $timestamp = (is_null($row{"max(timestamp)"})? "" : $row{"max(timestamp)"});
+  $status = $row{'status'};
+  $timestamp = (is_null($row{"timestamp"})? "" : $row{"timestamp"});
 
   //print "primaryID: ".$primaryID."\n";
   //print "secondaryID: ".$secondaryID."\n";
