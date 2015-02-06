@@ -47,10 +47,10 @@ while ($row = mysql_fetch_array($result)) {
   //print "source: ".$source."\n";
   //print "type: ".$type."\n";
 
-  if ($status == "download_complete" || $status == "postprocessing_complete") {
-    $status = "Complete";
-  } else {
+  if (preg_match('/copying_to_final|fail/i', $status)) {
     $status = "Incomplete";
+  } else {
+    $status = "Complete";
   }
 
   $comName = "";

@@ -6,11 +6,19 @@ Description: Standard page with additional Sample Status at the bottom
 
 get_header(); ?>
 <style>
+.site {
+  max-width: 1150px;
+}
 td, th {    
-  padding: 5px 15px 5px 5px;
+  padding: 4px 15px 4px 4px;
 }
 body {
-  margin-left: 80px;
+  margin-left: 0px;
+}
+th {
+  height: 15px;
+  font-weight: bold;
+  text-align: left;
 }
 
 </style>
@@ -28,19 +36,20 @@ body {
                         <div class="gr_status" id="gr_status">
      <table>
        <tr>
-         <th>Species</th>
+         <th>Repository</th>
+         <th>Description</th>
          <th>Source</th>
          <th>Timestamp</th>
          <th>Status</th>
        </tr>
 
-    <?php exec("php /var/www/html/scripts/genome_repo/get_status.php",$out);
+   <?php exec("php /var/www/html/scripts/genome_repo/get_status.php",$out);
 $jsonString = $out[0];
 $data = json_decode($jsonString);
 //print_r($data);
 foreach($data as $record) {
   echo "<tr>";
-  echo "<td> ".$record->Species." </td><td> ".$record->Source." </td><td> ".$record->Timestamp." </td><td> ".$record->Status." </td>";
+  echo "<td> ".$record->primaryID." </td><td> ".$record->description." </td><td> ".$record->source." </td><td> ".$record->timestamp." </td><td> ".$record->status." </td>";
   echo "</tr>";
 }
      ?>
@@ -49,13 +58,11 @@ foreach($data as $record) {
 
 
 <div style="padding-top: 30px;"> 
-<p style="text-align: left;"> <a href="http://informatics.fas.harvard.edu/?page_id=1136">Request</a> that a genome be added to the repository.</p>
+<p style="text-align: left;"> <a href="http://informatics.fas.harvard.edu/?page_id=1136">Request</a> that a genome or database be added to the repository.</p>
 </div>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
-
-
 

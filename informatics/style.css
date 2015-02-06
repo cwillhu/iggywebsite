@@ -18,15 +18,18 @@ html { font-size: 85%; }
     background-repeat: no-repeat;
     background-position: -1395px -250px;
   }
+  code {
+    margin-left: 1em;
+  }
   .site {
     max-width: 950px;
   }
   .site-content {
-    width: 65%;
+    width: 73%;
   }
   .widget-area {
     float: right;
-    width: 32%;
+    width: 25%;
   }
    \#footer-right, #footer-middle, #footer-left {
      float:none;
@@ -62,7 +65,9 @@ html { font-size: 85%; }
 
 
 .site-header h1 a, .site-header h2 a {
-  font-family: "Georgia", serif;
+ /* font-family: "Georgia", serif;*/
+  font-family:  "Helvetica";
+  font-size:  30px;
   text-align: center;
   margin: 0 auto;
 }
@@ -96,9 +101,8 @@ a {
 
 .main-navigation ul.nav-menu, .main-navigation div.nav-menu > ul {
   text-align: center;
-  width: 75%;
+/*  width: 75%;*/
 }
-
 body {
   color: #231f20;
 }
@@ -148,17 +152,21 @@ body .site {
 /*blog post titles: */
 .entry-header .entry-title {
   line-height: 1.2;
-  font-size: 135%;
-  text-align: center;
+  font-size: 200%;
+  /*text-align: center;*/
+  font-family: "Georgia",serif;
 }
 
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4 {
   margin-top: .5rem;
   margin-bottom: 1rem;
+  margin-left: 0.7em;
+  font-family: "Georgia",serif;
 }
 
 .entry-content p {
   line-height: 1.55rem;
+  margin-left: 1em;
 }
 
 .entry-content pre {
