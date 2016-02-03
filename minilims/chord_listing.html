@@ -1,0 +1,46 @@
+<html>
+<head>
+
+  <link rel="stylesheet" href="/scripts/includes/jquery-ui-1.8.15.custom.css" type="text/css" />
+
+  <script type="text/javascript" src="/scripts/includes/jquery-1.6.2.js"></script>
+  <script type="text/javascript" src="/scripts/includes/jquery-ui-1.8.15.custom.js"></script>
+  <script type="text/javascript" src="/scripts/minilims/D3ChordChart.js "></script>
+  <script type="text/javascript" src="/scripts/includes/d3.js"></script>
+
+<style>
+body {
+  font: 6px sans-serif;
+}
+
+.chord path {
+  fill-opacity: .67;
+  stroke: #000;
+  stroke-width: .5px;
+}
+</style>
+</head>
+   <body>
+   <h3 >LIMS Activity for 1 week/1 year</h3>
+   <table><tbody><tr>
+     <td><div class="d3chordchart" source="smms"  startdate="2015-03-05" title="Small Molecule Mass Spec" color="red"></div></td>
+     <td><div class="d3chordchart" source="bauer" startdate="2015-03-05" title="Bauer Sequencing Core" color="steelblue"></div></td>
+     <td><div class="d3chordchart" source="msprl" startdate="2015-03-05" title="Mass Spec Proteomics Core" color="purple"></div></td>
+     <td><div class="d3chordchart" source="helium" startdate="2015-03-05" title="Helium" color="purple"></div></td>
+  </tr>
+  <tr>
+   <td><div class="d3chordchart" source="smms"  startdate="2014-01-01" title="Small Molecule Mass Spec" color="red"></div></td>
+   <td><div class="d3chordchart" source="bauer" startdate="2014-01-01" title="Bauer Sequencing Core" color="steelblue"></div></td>
+   <td><div class="d3chordchart" source="msprl" startdate="2014-01-01" title="Mass Spec Proteomics Core" color="purple"></div></td>
+   <td><div class="d3chordchart" source="helium" startdate="2014-01-01" title="Helium" color="purple"></div></td>
+  </tr>
+  </tbody></table>
+</body>
+
+<script>
+ $(".d3chordchart").each(function() {
+   $(this).D3ChordChart();
+});
+</script>
+</html>
+

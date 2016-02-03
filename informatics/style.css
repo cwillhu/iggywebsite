@@ -7,7 +7,7 @@ Template: twentytwelve
 
 @import url("../twentytwelve/style.css");
 
-html { font-size: 85%; } 
+html { font-size: 100%; } 
 
 @media screen and (min-width: 900px) {
 
@@ -121,7 +121,7 @@ body .site {
 }
 
 .widget-title {
-  font-size: 11px;
+  font-size: 14px;
   font-size: 0.785714286rem;
   line-height: 1.8;
   font-weight: bold;
@@ -243,4 +243,3 @@ footer.entry-meta {
  float:right;
  padding-left:2.5%;
 }
-

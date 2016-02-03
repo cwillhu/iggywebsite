@@ -1,7 +1,7 @@
 <?php
 
 $hostname = "db-internal";
-$username = "iggyref";
+$username = "iggy";
 $password = trim(file_get_contents("/var/pw/IR.txt"));
 
 $db = mysql_connect($hostname, $username, $password)

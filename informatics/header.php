@@ -44,6 +44,7 @@
   <script type="text/javascript" src="/scripts/includes/jquery-ui-1.8.15.custom.js"></script>
   <script type="text/javascript" src="/scripts/includes/d3.js"></script>
   <script type="text/javascript" src="/scripts/minilims/jquery.MinilimsStatusBox.js "></script>
+  <script type="text/javascript" src="/scripts/minilims/D3ChordChart.js "></script>
 <!-- MC END Minilims include -->
 
 <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
